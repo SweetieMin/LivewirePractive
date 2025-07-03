@@ -8,7 +8,7 @@ use Exception;
 
 class UserRepository implements UserRepositoryInterface
 {
-    public function getAll(): array
+    public function getAll()
     {
         return User::all()->toArray();
     }

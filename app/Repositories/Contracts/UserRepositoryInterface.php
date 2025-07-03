@@ -3,6 +3,6 @@ namespace App\Repositories\Contracts;
 
 interface UserRepositoryInterface
 {
-    public function getAll(): array;
+    public function getAll();
     public function create(array $data);
 }

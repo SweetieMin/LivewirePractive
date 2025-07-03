@@ -24,7 +24,7 @@
         <p class="mt-0.5 text-sm font-medium leading-snug flex-1">{{ $value }}</p>
     </div>
 @endSession
-
+    
 <!-- Error -->
 @session('error')
     <div x-data="{ show: true }"

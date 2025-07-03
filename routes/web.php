@@ -4,6 +4,7 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Back\Management\Locations;
+use App\Livewire\Back\Management\Roles;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,13 +12,14 @@ Route::get('/', function () {
 })->name('home');
 
 Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified','preventBackHistory'])
     ->name('dashboard');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','preventBackHistory'])->group(function () {
 
     //Locations
     Route::get('locations', Locations::class)->name('locations');
+    Route::get('roles', Roles::class)->name('roles');
 
     Route::redirect('settings', 'settings/profile');
 

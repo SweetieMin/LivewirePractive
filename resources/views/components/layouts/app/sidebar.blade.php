@@ -12,12 +12,13 @@
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Bảng Điều Khiển') }}</flux:navlist.item>
             </flux:navlist>
 
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Management')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('locations')" :current="request()->routeIs('locations')" wire:navigate>{{ __('Locations') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-1" icon="map-pin-house" :href="route('locations')" :current="request()->routeIs('locations')" wire:navigate>{{ __('Cơ Sở') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-1" icon="shield-user" :href="route('roles')" :current="request()->routeIs('roles')" wire:navigate>{{ __('Chức Vụ') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

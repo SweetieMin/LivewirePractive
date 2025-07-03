@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); 
-            $table->string('address');
+            $table->string('name')->unique(); // Tên chức vụ
+            $table->string('description'); // Mô tả chức vụ
+            $table->enum('type', ['System', 'User Defined'])->default('User Defined');
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('locations');
+        Schema::dropIfExists('roles');
     }
 };
